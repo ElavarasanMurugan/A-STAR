@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 from collections import defaultdict
 H_dist ={}
 def aStarAlgo(start_node, stop_node):
@@ -45,8 +39,7 @@ def aStarAlgo(start_node, stop_node):
                             closed_set.remove(m)
                             open_set.add(m)
         if n == None:
-            TYPE THE CODE HERE TO PRINT AS Path does not exist!
-            
+            print('Path does not exist!')
             return None
         
         # if the current node is the stop_node
@@ -70,35 +63,14 @@ def aStarAlgo(start_node, stop_node):
 #define fuction to return neighbor and its distance
 #from the passed node
 def get_neighbors(v):
-       """
-    Retrieves a value from the Graph_nodes dictionary based on the provided key.
-
-    Parameters:
-    v (hashable): The key used to look up the value in the Graph_nodes dictionary.
-    Graph_nodes (dict): A dictionary where the keys are nodes and the values are associated data.
-
-    Returns:
-    The value associated with the key `v` in the Graph_nodes dictionary if the key exists; 
-    otherwise, returns None.
-    TYPE THE CODE HERE BY REFERRING TO THE ABOVE DESCRIPTION
-    """
+    if v in Graph_nodes:
+        return Graph_nodes[v]
+    else:
+        return None
 def heuristic(n):
     return H_dist[n]
 
 
-#Describe your graph here
-'''Graph_nodes = {
-    'A': [('B', 6), ('F', 3)],
-    'B': [('A', 6), ('C', 3), ('D', 2)],
-    'C': [('B', 3), ('D', 1), ('E', 5)],
-    'D': [('B', 2), ('C', 1), ('E', 8)],
-    'E': [('C', 5), ('D', 8), ('I', 5), ('J', 5)],
-    'F': [('A', 3), ('G', 1), ('H', 7)],
-    'G': [('F', 1), ('I', 3)],
-    'H': [('F', 7), ('I', 2)],
-    'I': [('E', 5), ('G', 3), ('H', 2), ('J', 3)],
-}
-'''
 graph = defaultdict(list)
 n,e = map(int,input().split())
 for i in range(e):
@@ -110,10 +82,9 @@ for i in range(e):
 for i in range(n):
     node,h=map(str,input().split())
     H_dist[node]=float(h)
-print(H_dist)
 
    
 Graph_nodes=graph
-print(graph)
-aStarAlgo('S', 'G')
+start_node,goal_node = input().split()
+aStarAlgo(start_node, goal_node)
 
