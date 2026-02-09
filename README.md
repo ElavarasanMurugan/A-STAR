@@ -224,3 +224,8 @@ Path found: ['A', 'E', 'D', 'G']
 
 
 ![alt text](images/image-2.png)
+
+
+<h2>Result</h2>
+
+The A* search algorithm successfully finds the optimal path from the start node to the goal node by evaluating nodes based on the combined cost and heuristic function, ensuring the least-cost path is selected.
